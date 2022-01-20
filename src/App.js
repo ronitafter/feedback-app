@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import FeedbackList from "./components/FeedbackList";
 import FeedbackData from "./data/FeedBackData";
 import Card from "./components/shared/Card";
+import FeedBackStats from "./components/FeedBackStats";
 
 
 function App(){
@@ -15,8 +16,23 @@ function App(){
       setfeedBack(feedback.filter((item) => item.id !== id))
     }
    }
+   return(
+     <>
+     
+     <Header/>
+     <div className="container">
+    <FeedBackStats feedback={feedback}/>
+      <FeedbackList feedback={feedback} 
+      handleDelete={deleteFeedback}/>
+     <Card>Hello, App</Card> 
+     </div>  
+     </>
+   )
+}
 
-   /*
+export default App
+
+ /*
    return(
      <>
     1 <Header text="Hello World"/>
@@ -31,18 +47,3 @@ function App(){
 
 export default App
    */
- 
-   return(
-     <>
-     
-     <Header/>
-     <div>
-      <FeedbackList feedback={feedback} 
-      handleDelete={deleteFeedback}/>
-     <Card>Hello, App</Card> 
-     </div>  
-     </>
-   )
-}
-
-export default App

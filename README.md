@@ -3,18 +3,15 @@ This project allows users to add, update and delete feedback. It uses a mock RES
 This project goes over all of the fundamentals of React:
 
 * Components
-*JSX
-Props (proptypes, defaultprops, etc)
-State (Component & App Level)
-Styling
-Handling Events
-Lists & Keys
-Forms
-Context API
-HTTP Requests
-Usage
-Install dependencies
-npm install
-Run
-npm run dev
-This will run JSON-server on port :5000 and React on port :3000
+* JSX
+* Props (proptypes, defaultprops, etc)
+* State (Component & App Level)
+* Styling
+* Handling Events
+* Lists & Keys
+* Forms
+* Context API
+* HTTP Requests
+* Usage
+* Install dependencies
+* npm install

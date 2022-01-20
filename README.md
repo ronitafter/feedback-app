@@ -3,7 +3,7 @@ This project allows users to add, update and delete feedback. It uses a mock RES
 This project goes over all of the fundamentals of React:
 
 * Components
-JSX
+*JSX
 Props (proptypes, defaultprops, etc)
 State (Component & App Level)
 Styling

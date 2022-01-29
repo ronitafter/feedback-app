@@ -1,5 +1,6 @@
 import { useState } from "react";
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Routes, NavLink} from 'react-router-dom';
+import Card from "./components/shared/Card";
 import Header from "./components/Header";
 // import FeedBackItem from "./components/FeedBackItem";
 import FeedbackList from "./components/FeedbackList";
@@ -45,6 +46,9 @@ function App(){
       <Route path='/about' element={<About/>}/>
       </Routes>
     <Card>Hello, User</Card> 
+    <Card>
+      <NavLink to='/' activeClassName='active'></NavLink>
+    </Card>
      <AboutIconLink/>
      </div>  
      </Router>

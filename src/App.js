@@ -5,13 +5,13 @@ import Header from "./components/Header";
 // import FeedBackItem from "./components/FeedBackItem";
 import FeedbackList from "./components/FeedbackList";
 import FeedbackData from "./data/FeedBackData";
-import Card from "./components/shared/Card";
 import FeedBackStats from "./components/FeedBackStats";
 import FeedBackForm from "./components/FeedBackForm";
 import {v4 as uuidv4} from 'uuid';
 import About from "./pages/About";
 import AboutIconLink from "./components/AboutIconLink";
-
+// import Post from "./components/Post.jsx";
+import { FeedbackProvider } from "./context/FeedbackContext";
 function App(){
 
    const[feedback, setfeedBack] = useState(FeedbackData)
@@ -22,37 +22,45 @@ function App(){
     setfeedBack([newFeedback,...feedback])
 
    }
-   const deleteFeedback = (id) => {
-    //  console.log('App', id)
-    if(window.confirm('Are you sure you want to delete?')){
-      setfeedBack(feedback.filter((item) => item.id !== id))
-    }
-   }
-   return(
-     <Router>
-     <Header/>
-     <div className="container">
-     <Routes>
-     <Route exact path='/' element={
-       <>
-         <FeedBackForm handleAdd={addFeedback}/>
-    <FeedBackStats feedback={feedback}/>
-      <FeedbackList feedback={feedback} 
-      handleDelete={deleteFeedback}/>
-       </>
-     }>
-   
-      </Route>
-      <Route path='/about' element={<About/>}/>
-      </Routes>
-    <Card>Hello, User</Card> 
-    <Card>
-      <NavLink to='/' activeClassName='active'></NavLink>
-    </Card>
-     <AboutIconLink/>
-     </div>  
-     </Router>
-   )
+  
+   return (
+     <FeedbackProvider>
+       <Router>
+         <Header />
+         <div className="container">
+           <Routes>
+             <Route
+               exact
+               path="/"
+               element={
+                 <>
+                   <FeedBackForm handleAdd={addFeedback} />
+                   <FeedBackStats/>
+                   <FeedbackList 
+                    //  feedback={feedback}
+                     handleDelete={deleteFeedback}
+                   />
+                 </>
+               }
+             ></Route>
+             <Route path="/about" element={<About />} />
+             {/*<Route path="/post/:id/:name" element={<Post />} />*/}
+             {/*<Route path="/post/*"" element={<Post />} />*/}
+           </Routes>
+           {/*<Card>Hello, User</Card>*/}
+           {/*<Card>
+      <NavLink to='/' activeClassName='active'>
+        NavLink Home
+      </NavLink>
+       <NavLink to='/about' activeClassName='active'>
+        NavLink About
+      </NavLink>
+    </Card>*/}
+           <AboutIconLink />
+         </div>
+       </Router>
+     </FeedbackProvider>
+   );
 }
 
 export default App
